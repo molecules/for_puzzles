@@ -16,7 +16,7 @@ sub MAIN($word-in,$count=$word-in.chars(),:$mask) {
     for $word-in.comb.permutations -> $perm {
         my $word-putative = $perm[0..$last-index].join;
 
-
+        # save permutation if it is a "real" word
         if $word-putative (<) $known-set {
             %found{$word-putative} = 1 unless %found{$word-putative}:exists;
         }
